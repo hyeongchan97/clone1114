@@ -1,0 +1,252 @@
+body,html{
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: skyblue;
+}
+
+.inner{
+    width: 1170px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.hidden{        /*공식이라 생각하고 외우기*/
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0px 0px 0px 0px);
+    margin: -1px;
+}
+/*  ir기법
+image replace
+
+1. text-indent : -9999px
+2. left : -9999px
+메모리 과부하 문제로 사용하지 않음
+
+
+
+*/
+
+/*header*/
+header.header-container{
+    width: 100%;
+    height: 120px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: transparent;
+    z-index: 999;
+}
+
+div.header-top-container{
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+div.header-top-container ul{
+    display: flex;
+}
+
+ul.header-login li{
+    position: relative;
+}
+
+ul.header-login li::after{
+    content: "";
+    display: block;
+    width: 1px;
+    height: 10px;
+    background-color: #dddddd;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+ul.header-login li a{
+    color: #ffffff;
+    font-size: 11px;
+    display: block;
+    padding: 9px 14px;
+}
+
+ul.header-sns{
+    padding: 8px 24px 8px 12px;
+}
+
+ul.header-sns li{
+    width: 14px;
+    height: 14px;
+    margin-left: 8px ;
+}
+
+ul.header-sns li:last-child{
+    margin-right: 0;
+}
+
+ul.header-sns li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("/hsd/images/icon_sns_01.png") ;
+    background-repeat: no-repeat;
+    background-size: 56px 14px;
+}
+ul.header-sns li:first-child >a{
+    background-position: -28px 0px;
+}
+ul.header-sns li:last-child >a{
+    background-position: -42px 0px;
+}
+
+
+/* bottom */
+div.header-bottom-container{
+    width: 100%;
+    height: 90px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+h1.logo{
+    width: 109px;
+    height: 47px;
+    background-image: url(/hsd/images/h1_logo.png);
+    background-repeat: no-repeat;
+}
+
+nav.gnb{
+    height: 100%;
+}
+
+nav.gnb ul{
+    display: flex;
+    height: 100%;
+
+}
+nav.gnb ul li{
+    padding: 0px 30px;
+    height: 100%;
+}
+
+nav.gnb ul li > a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+nav.gnb ul li > a::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 7px;
+    background-color: gold;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    transition:  250ms;
+    transform: scaleX(0);
+}
+nav.gnb ul li:hover a::after{
+    transform: scaleX(1);
+
+}
+nav.gnb ul li:hover a{
+    color: gold;
+}
+
+div.mobile-btn{
+    width: 25px;
+    height: 22px;
+}
+div.mobile-btn a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: 300ms;
+}
+div.mobile-btn a span{
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #333333;
+    position: absolute;
+    left: 0;
+    transition: 300ms;
+
+}
+
+span.line01{
+    top: 0;
+}
+span.line02{
+    top: 9px;
+}
+span.line03{
+    top: 18px;
+}
+
+div.mobile-btn a:hover span.line01{
+    top: 9px;
+    transition-delay: 300ms;
+}
+
+div.mobile-btn a:hover span.line02{
+    transform: scaleX(0);
+
+}
+div.mobile-btn a:hover span.line03{
+    transform: rotate(90deg);
+    top: 9px;
+    transition-delay: 300ms; 
+}
+div.mobile-btn a:hover{
+    transform: rotate(45deg);
+    transition-delay: 650ms;
+}
+
+
+
+
+
+@media screen and (max-width:1170px) {
+        .inner{
+            width: 100%;
+        }
+}
+@media screen and (max-width:1023px) {
+   
+    header.header-container,
+    header.header-bottom-container{
+        height: 60px;
+    }
+   
+    div.header-top-container,
+    nav.gnb{
+        display: none;
+    }
+
+    h1.logo{
+        height: 25px;
+        width: 25px;
+        background-image: url(/hsd/images/m_h1_logo.png);
+        background-size: 25px 25px;
+    }
+}
+
+
+
+
+
+
